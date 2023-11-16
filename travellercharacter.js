@@ -80,10 +80,10 @@ function roll(rolls) {
     return total;
 }
 
-function decToHex(n) {
-    // Convert decimal number to hexadecimal.
-    return n.toString(16).toUpperCase();
-}
+// function decToHex(n) {
+//     // Convert decimal number to hexadecimal.
+//     return n.toString(16).toUpperCase();
+// }
 
 function numCommaSep(n) {
     // Format numbers like 1,000,000.
