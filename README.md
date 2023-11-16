@@ -28,7 +28,7 @@ Test for Push
 
 ## Origins ##
 This is a branch of Pgorman's [traverllercharactergenerator](https://github.com/pgorman/travellercharactergenerator)
-Thanks to a contribution from Frank Filz, a [verbose mode](https://devilghost.com/software/travellercharacter/index.html?history=verbose) adds behind-the-scenes character creation details.
+Thanks to a contribution from Frank Filz, a [verbose mode](https://justinaquinogitb.github.io/cechargen/index.html?history=verbose) adds behind-the-scenes character creation details.
 
 ## License (2-Clause BSD License) ##
 
