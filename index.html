@@ -1,24 +1,72 @@
-<!doctype html>
-<html lang="en-us">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Classic Traveller Character Generator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="travellercharacter.css">
-<script src="travellercharacter.js"></script>
+<!doctype html> <!-- Declares the document type and version of HTML -->
+<html lang="en-us"> <!-- Sets the language of the document -->
+<head> <!-- Contains meta information, linked files, and other data not displayed -->
+  <meta charset="utf-8"> <!-- Specifies character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Sets viewport settings for responsive design -->
+  <title>CEPHEUS ENGINE Character Generator</title> <!-- Sets the title shown in the browser tab -->
+  <link rel="stylesheet" href="travellercharacter.css"> <!-- Links the CSS stylesheet -->
+  <script src="travellercharacter.js"></script> <!-- Links the JavaScript file -->
 </head>
-<body>
+  
+<body> <!-- Start of the document body where content goes -->
 
-<h1 id="noprintheader">Classic Traveller Character Generator</h1>
+<div style="display: flex; align-items: center;"> <!-- Container div for logo and title -->
+  <img src="ce-compatible-all-caps_orig.png" alt="Logo" style="width: 200px; height: 300px;"> <!-- Image logo with updated dimensions -->
+  <h1 id="noprintheader">CEPHEUS ENGINE Character Generator</h1> <!-- Main title -->
+</div>
 
-<hr>
 
-<div id="travchar"></div>
+
+
+
+<!-- New Input Field to Specify Number of Characters -->
+<label for="numCharacters">Number of Characters:</label>
+<input type="number" id="numCharacters" name="numCharacters" min="1" max="20" value="1">
+<!-- New Input Field to Specify Number of Characters END-->
+
+<!-- BUTTON to trigger Roll START-->  
+<button id="rollButton">Roll the Character(s)</button> <!-- Button that will trigger the character roll -->
+<!-- BUTTON to trigger Roll END--> 
+
+
+  
+<!-- has to be above the hr it seems  -->
+<hr> <!-- Horizontal rule line -->
 
 <script>
-document.getElementById('travchar').innerHTML = travellerCharacter('text');
+  // Gets the button element by its ID
+  var rollButton = document.getElementById('rollButton'); 
+  
+  // Adds a click event listener to the button
+  rollButton.addEventListener('click', function() {
+    // Gets the 'travchar' div and sets its innerHTML to the return value of the travellerCharacter function
+    document.getElementById('travchar').innerHTML = travellerCharacter('text'); 
+  });
 </script>
+
+  
+<div id="travchar"></div> <!-- Empty div where the character info will be inserted -->
+
+<script>
+//Triggering Many Rolls START
+document.getElementById('rollButton').addEventListener('click', function() {
+  // Clear the div
+  document.getElementById('travchar').innerHTML = '';
+
+  // Get the number of characters to generate from the input field
+  var numCharacters = document.getElementById('numCharacters').value;
+
+  // Constrain the number between 1 and 20
+  numCharacters = Math.min(Math.max(numCharacters, 1), 20);
+
+  // Generate characters
+  for (var i = 0; i < numCharacters; i++) {
+    document.getElementById('travchar').innerHTML += travellerCharacter('text') + '<hr>';
+  }
+});
+//Triggering Many Rolls END  
+</script>
+
 
 </body>
 </html>
