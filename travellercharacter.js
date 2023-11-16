@@ -1185,14 +1185,23 @@ t.extendedHex = function (val) {
         return '?';
     }
 }     
+// t.getAttrString = function () {
+//     return t.extendedHex(t.attributes.strength) +
+//           t.extendedHex(t.attributes.dexterity) +
+//           t.extendedHex(t.attributes.endurance) +
+//           t.extendedHex(t.attributes.intelligence) +
+//           t.extendedHex(t.attributes.education) +
+//           t.extendedHex(t.attributes.social);
+// };
 t.getAttrString = function () {
-    return t.extendedHex(t.attributes.strength) +
-          t.extendedHex(t.attributes.dexterity) +
-          t.extendedHex(t.attributes.endurance) +
-          t.extendedHex(t.attributes.intelligence) +
-          t.extendedHex(t.attributes.education) +
-          t.extendedHex(t.attributes.social);
+    return 'Str ' + t.attributes.strength + ', ' +
+           'Dex ' + t.attributes.dexterity + ', ' +
+           'End ' + t.attributes.endurance + ', ' +
+           'Int ' + t.attributes.intelligence + ', ' +
+           'Edu ' + t.attributes.education + ', ' +
+           'Soc ' + t.attributes.social;
 };
+
 t.skillPoints = 0;
 t.skills = [];
 t.checkSkill = function (skill) {
