@@ -1440,7 +1440,7 @@ t.doServiceTerm = function () {
     // Check survival:
     if (! s[t.service].checkSurvival.call(t)) {  //Lets deactivate to see if it breaks.
     //     t.history.push('Death in service.'); //You can de-activate Death, but make it that a failed survival roll musters
-        t.history.push('Seperated from Service'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
+        t.history.push('Separated from Service'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
     //     t.deceased = true; //deactivate this if you want to de-activate death 
         t.activeDuty = false; //failed survival roll still removes the character from duty. 
     }
