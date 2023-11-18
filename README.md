@@ -3,16 +3,16 @@ This JavaScript character generator for the Cepheus Engine sci-fi roleplaying ga
 This is based on https://github.com/pgorman/travellercharactergenerator classic Traveller character generator, I copied the files into this unlinked project so that I dont accidentally break his work. I'm learning to use Gitub through trial and error, and no formal training so expect me to make a lot of mistakes. 
 ~~Yes, characters _can_ die during character creation!~~
 
-Test Branch Edit 231116. EDIT 2 231116. 
+
 
 How to use this: 
 1. Download this in either your phone, tablet, or desktop
 2. On the [cepheus character generator](https://github.com/justinaquinoGITB/cepheus_engine_character_generator).
 3. Go to the green button of Code, 
 4. choose Download zip,
-5. unzip 
+5. unzip or extract
 6. open folder and look for Index.html
-7. open index,html in a browser of choice
+7. open index.html in a browser of choice (you can add ?history=verbose after index.html to make it detail what happned)
 8. Make a Bookmark for easy access (or save to home screen on device)
 
 How to Test (See notes 231102_00; additional changes 231103; testing pushing local changes to remote 231103)
@@ -22,9 +22,8 @@ How to Test (See notes 231102_00; additional changes 231103; testing pushing loc
 
 (Reload the page to generate another character.)
 
-Setting up ubuntu VSCodium 231103
-Test for Pull 231103 Test again 231103
-Test for Push
+## NEWBIE's Guide to Java Script ##
+
 
 ## Origins ##
 This is a branch of Pgorman's [traverllercharactergenerator](https://github.com/pgorman/travellercharactergenerator)
