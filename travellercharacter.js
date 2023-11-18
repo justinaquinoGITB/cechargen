@@ -323,7 +323,7 @@ s.navy = {
                 switch(roll(1)) {
                     case 1: this.addSkill("Ship's Boat"); break;
                     case 2: this.addSkill('Vacc Suit'); break;
-                    case 3: this.addSkill('Fwd Obsvr'); break;
+                    case 3: this.addSkill('Recon'); break;
                     case 4: this.addSkill('Gunnery'); break;
                     case 5: this.addSkill(cascadeBlade.call(this)); break;
                     default: this.addSkill(cascadeGun.call(this));
@@ -663,7 +663,7 @@ s.army = {
                         break;
                     case 2: this.addSkill('Air/Raft'); break;
                     case 3: this.addSkill(cascadeGun.call(this)); break;
-                    case 4: this.addSkill('Fwd Obsvr'); break;
+                    case 4: this.addSkill('Recon'); break;
                     case 5: this.addSkill(cascadeBlade.call(this)); break;
                     default: this.addSkill(cascadeGun.call(this));
                 }
