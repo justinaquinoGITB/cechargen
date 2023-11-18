@@ -12,19 +12,14 @@ How to use this:
 4. choose Download zip,
 5. unzip 
 6. open folder and look for Index.html
-7. open index,html in a browser of choice
-8. Make a Bookmark for easy access (or save to home screen on device)
+7. open index.html in a browser of choice
+8. Make a Bookmark for easy access (or save to home screen on the device)
 
-How to Test (See notes 231102_00; additional changes 231103; testing pushing local changes to remote 231103)
-1. Check out the effect of Changes in [https://justinaquinogitb.github.io/cepheus_engine_character_generator/index.html?history=verbose](https://justinaquinogitb.github.io/cepheus_engine_character_generator/index.html?history=verbose)
-2. More importantly if you want to create the same project you can create a new repository, download and manually copy the files into that new repository (I did this because this allows me to instantly make changes without worrying about affecting pgorman's project).
-3. 
+How to Test
+1. Check out the effect of Changes in [https://justinaquinogitb.github.io/cechargen/index.html?history=verbose](https://justinaquinogitb.github.io/cechargen/index.html?history=verbose)
+2. More importantly if you want to create the same project you can create a new repository, download and manually copy the files into that new repository (I did this because this allows me to instantly make changes without worrying about affecting pgorman's project).. 
 
 (Reload the page to generate another character.)
-
-Setting up ubuntu VSCodium 231103
-Test for Pull 231103 Test again 231103
-Test for Push
 
 ## Origins ##
 This is a branch of Pgorman's [traverllercharactergenerator](https://github.com/pgorman/travellercharactergenerator)
