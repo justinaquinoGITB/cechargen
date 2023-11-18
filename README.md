@@ -7,7 +7,7 @@ Test Branch Edit 231116. EDIT 2 231116.
 
 How to use this: 
 1. Download this in either your phone, tablet, or desktop
-2. On the [cepheus character generator](https://github.com/justinaquinoGITB/cepheus_engine_character_generator).
+2. On the [cepheus character generator](https://justinaquinogitb.github.io/cechargen/index.html?history=verbose).
 3. Go to the green button of Code, 
 4. choose Download zip,
 5. unzip 
