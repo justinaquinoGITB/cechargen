@@ -1204,6 +1204,7 @@ t.getAttrString = function () {
 
 t.skillPoints = 0;
 t.skills = [];
+
 t.checkSkill = function (skill) {
     for (var i = 0, limit = t.skills.length; i < limit; i++) {
         if (t.skills[i][0] == skill) {
@@ -1232,19 +1233,33 @@ t.whichSkillTable = function() {
                       this.tables[table - 1]);
     return table;
 }
+// t.addSkill = function (skill, skillLevel) {  //THIS VERSIOn doesnt allow Skill-0
+//     var i = t.checkSkill(skill);
+//     if (! skillLevel) {
+//         skillLevel = 1;
+//     }
+//     if (i >= 0) {
+//         t.skills[i][1] += skillLevel;
+//         t.verboseHistory('Improved ' + skill + '-' + t.skills[i][1]);
+//     } else {
+//         t.skills.push([skill, skillLevel]);
+//         t.verboseHistory('Learned ' + skill + '-' + skillLevel);
+//     }
+// };
 t.addSkill = function (skill, skillLevel) {
     var i = t.checkSkill(skill);
-    if (! skillLevel) {
-        skillLevel = 1;
+    if (skillLevel === undefined) {
+        skillLevel = 1; // If no level is specified, default to 1
     }
     if (i >= 0) {
         t.skills[i][1] += skillLevel;
         t.verboseHistory('Improved ' + skill + '-' + t.skills[i][1]);
     } else {
-        t.skills.push([skill, skillLevel]);
-        t.verboseHistory('Learned ' + skill + '-' + skillLevel);
+        t.skills.push([skill, skillLevel]); // Add the skill even if it's 0
+        t.verboseHistory('Learned ' + skill + '-' + skillLevel); // Add the skill even if it's 0
     }
 };
+
 t.improveAttribute = function (attrib, delta) {
     if (! delta) {
         delta = 1;
@@ -1651,6 +1666,42 @@ t.toStringFail = function () {
             return 'Failed to generate after ' + t.maxchars + ' attempts\n';
         }).call(this);
 };
+// Immediately add a test skill at level 0
+t.addSkill('testskill', 3);
+//BACKGROUND SKILLS // It only works only RIGHT before toSTRING. toString is what encodes all the stats. Something before toString removes the other skills. 
+// Calculate the Education DM and assign background skills
+var eduDM = Math.floor(t.attributes.education / 3) - 2;
+var backgroundSkills = assignBackgroundSkills(eduDM);
+function assignBackgroundSkills(eduDM) { //
+    const numberOfSkills = Math.max(3 + eduDM, 1); // Ensure at least 1 skill is selected
+
+    const allSkills = [
+        'Admin', 'Advocate', 'Animals', 'Carousing', 'Comms',
+        'Computer', 'Electronics', 'Engineering', 'Life Sciences',
+        'Linguistics', 'Mechanics', 'Medicine', 'Physical Sciences',
+        'Social Sciences', 'Space Sciences'
+    ];
+
+    const selectedSkills = {}; // To store selected skills at level 0
+
+    while (Object.keys(selectedSkills).length < numberOfSkills) {
+        let randomIndex = Math.floor(Math.random() * allSkills.length);
+        let selectedSkill = allSkills[randomIndex];
+        selectedSkills[selectedSkill] = 0; // Assign level 0 to the selected skill
+    }
+
+    return selectedSkills;
+}
+// Calculate the Education DM and assign background skills
+var eduDM = Math.floor(t.attributes.education / 3) - 2;
+var backgroundSkills = assignBackgroundSkills(eduDM);
+
+// Add the background skills to the character
+for (var skill in backgroundSkills) {
+    t.addSkill(skill, backgroundSkills[skill]);
+}
+
+//BACKGROUND SKILLS END
 t.toString = function () {
     return (function() {
             var parms = t.urlParams();
@@ -1701,6 +1752,23 @@ t.toString = function () {
                 return '';
             }
         }).call(this) + "\n" +
+        // (function () {
+        //     if ((t.skills.length < 1) || (t.deceased)) { return ''; }
+        //     var skills = [];
+        //     for (var i = 0, limit = t.skills.length; i < limit; i++) {
+        //         skills.push(t.skills[i][0] + '-' + t.skills[i][1]);
+        //     }
+        //     skills.sort();
+        //     var skillString = "\nSkills: ";
+        //     for (var i = 0, limit = skills.length; i < limit; i++) {
+        //         skillString += skills[i];
+        //         if (i !== limit - 1) {
+        //             skillString += ', ';
+        //         }
+        //     }
+        //     return skillString + "\n";
+        // }).call(this) +
+        // Display 0 Skill
         (function () {
             if ((t.skills.length < 1) || (t.deceased)) { return ''; }
             var skills = [];
@@ -1716,7 +1784,8 @@ t.toString = function () {
                 }
             }
             return skillString + "\n";
-        }).call(this) +
+        }).call(this) +      
+        
         (function () {
             if (this.benefits.length > 0) {
                 this.benefits.sort();
@@ -1762,6 +1831,7 @@ t.reset = function() {
     if (t.ship) {
         t.ships2 += 1;
     }
+
     t.history.push('Number of resets ' + t.numresets);
     t.age = 18;
     t.gender = generateGender();
@@ -1782,6 +1852,7 @@ t.reset = function() {
     t.attributes.social = roll(2);
     t.skillPoints = 0;
     t.skills = [];
+    
     t.drafted = false;
     t.service = t.determineService();
     t.deceased = false;
