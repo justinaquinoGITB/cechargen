@@ -1452,14 +1452,41 @@ t.doServiceTerm = function () {
         s[t.service].acquireSkill.call(t);
         t.skillPoints -= 1;
     }
+    //MISHAP RESULTS TABLE
+    // Define the mishap results function
+    function mishapResults() {
+        let rollResult = roll(1); // Simulate a roll of 1D6
+        switch (rollResult) {
+            case 1:
+                return "Injured in action. This is the same as a result of 2 on the Injury table.";
+            case 2:
+                return "Honorably discharged from the service.";
+            case 3:
+                return "Honorably discharged from the service after a long legal battle. Legal issues create a debt of Cr10,000.";
+            case 4:
+                return "Dishonorably discharged from the service. Lose all benefits.";
+            case 5:
+                return "Dishonorably discharged from the service after serving an extra 4 years in prison for a crime. Lose all benefits.";
+            case 6:
+                return "Medically discharged from the service. Roll on the Injury table.";
+            default:
+                return "Unknown mishap.";
+        }
+    }
+    //MISHAP TABLE END
     // Check survival:
     if (! s[t.service].checkSurvival.call(t)) {  //Lets deactivate to see if it breaks.
     //     t.history.push('Death in service.'); //You can de-activate Death, but make it that a failed survival roll musters
-        t.history.push('Separated from Service'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
+    let mishapOutcome = mishapResults(); // Get the mishap result
+        // t.history.push('Separated from Service, Mishap'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
+        t.history.push('Separated from Service, Mishap: ' + mishapOutcome); // Add the mishap result to the character's history
+        t.age -= 2; // reduces the age per term by 2 on a failed survival
+        t.history.push('Did not complete Term, -2 years ');
     //     t.deceased = true; //deactivate this if you want to de-activate death 
         t.activeDuty = false; //failed survival roll still removes the character from duty. 
     }
 };
+t.mishapResults = [];
 t.musterStrategy = '';
 t.found = false;
 t.musterOut = function () {
@@ -1851,7 +1878,7 @@ t.reset = function() {
     t.attributes.social = roll(2);
     t.skillPoints = 0;
     t.skills = [];
-    
+    t.mishapResults = []; // Mishap object. 
     t.drafted = false;
     t.service = t.determineService();
     t.deceased = false;
