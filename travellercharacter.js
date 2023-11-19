@@ -1667,7 +1667,6 @@ t.toStringFail = function () {
         }).call(this);
 };
 // Immediately add a test skill at level 0
-t.addSkill('testskill', 3);
 //BACKGROUND SKILLS // It only works only RIGHT before toSTRING. toString is what encodes all the stats. Something before toString removes the other skills. 
 // Calculate the Education DM and assign background skills
 var eduDM = Math.floor(t.attributes.education / 3) - 2;
