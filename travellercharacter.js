@@ -316,17 +316,17 @@ s.navy = {
                     case 3: this.improveAttribute('endurance', 1); break;
                     case 4: this.improveAttribute('intelligence', 1); break;
                     case 5: this.improveAttribute('education', 1); break;
-                    default: this.improveAttribute('social', 1);
+                    default: this.addSkill('Melee Combat');
                 }
                 break;
             case 2:
                 switch(roll(1)) {
-                    case 1: this.addSkill("Ship's Boat"); break;
-                    case 2: this.addSkill('Vacc Suit'); break;
-                    case 3: this.addSkill('Recon'); break;
+                    case 1: this.addSkill("Comms"); break;
+                    case 2: this.addSkill('Engineering'); break;
+                    case 3: this.addSkill('Gun Combat'); break;
                     case 4: this.addSkill('Gunnery'); break;
-                    case 5: this.addSkill(cascadeBlade.call(this)); break;
-                    default: this.addSkill(cascadeGun.call(this));
+                    case 5: this.addSkill('Melee Combat'); break;
+                    default: this.addSkill('Vehicle');
                 }
                 break;
             case 3:
