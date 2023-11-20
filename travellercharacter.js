@@ -1911,6 +1911,53 @@ if (t.urlParam('maxchars') != '') {
 
 while (t.activeDuty && (! t.deceased)) {
     t.doServiceTerm();
+    t.verboseHistory("Current Term: " + t.terms);
+    t.verboseHistory("Current Service: " + t.service);
+    //FIRST TERM NAVY SERVICE SKILLS
+        if (t.terms === 1 && t.service === 'navy') { 
+           t.addSkill("Comms", 0); 
+           t.addSkill('Engineering', 0); 
+           t.addSkill('Gun Combat', 0); 
+           t.addSkill('Gunnery', 0); 
+           t.addSkill('Melee Combat', 0); 
+           t.addSkill('Vehicle', 0);
+    };
+      //FIRST TERM MARINE SERVICE SKILLS
+      if (t.terms === 1 && t.service === 'marines') { 
+             t.addSkill("Comms", 0); 
+             t.addSkill('Demolition', 0); 
+             t.addSkill('Gun Combat', 0); 
+             t.addSkill('Gunnery', 0); 
+             t.addSkill('Melee Combat', 0); 
+             t.addSkill('Battle Dress', 0);
+      };
+       //FIRST TERM ARMY SERVICE SKILLS
+       if (t.terms === 1 && t.service === 'army') { 
+        t.addSkill("Mechanics", 0); 
+        t.addSkill('Gun Combat', 0); 
+        t.addSkill('Gunnery', 0); 
+        t.addSkill('Melee Combat', 0); 
+        t.addSkill('Recon', 0); 
+        t.addSkill('Battle Dress', 0);
+    };
+       //FIRST TERM SCOUT SERVICE SKILLS
+       if (t.terms === 1 && t.service === 'scouts') { 
+        t.addSkill("Comms", 0); 
+        t.addSkill('Electronics', 0); 
+        t.addSkill('Gun Combat', 0); 
+        t.addSkill('Gunnery', 0); 
+        t.addSkill('Recon', 0); 
+        t.addSkill('Piloting', 0);
+    };
+           //FIRST TERM MERCHANT SERVICE SKILLS
+           if (t.terms === 1 && t.service === 'merchants') { 
+            t.addSkill("Comms", 0); 
+            t.addSkill('Engineering', 0); 
+            t.addSkill('Gun Combat', 0); 
+            t.addSkill('Melee Combat', 0); 
+            t.addSkill('Broker', 0); 
+            t.addSkill('Vehicle', 0);
+        };
     t.doAging();
     if (! t.deceased) {
         if (t.hunt == 'skill') {
