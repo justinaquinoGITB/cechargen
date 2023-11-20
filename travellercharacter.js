@@ -1481,7 +1481,7 @@ t.doServiceTerm = function () {
         // t.history.push('Separated from Service, Mishap'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
         t.history.push('Separated from Service, Mishap: ' + mishapOutcome); // Add the mishap result to the character's history
         t.age -= 2; // reduces the age per term by 2 on a failed survival
-                t.history.push('Did not complete Term, -2 years ');
+                t.history.push('Did not complete Term, only 2 years ');
     //     t.deceased = true; //deactivate this if you want to de-activate death 
         t.activeDuty = false; //failed survival roll still removes the character from duty. 
     }
