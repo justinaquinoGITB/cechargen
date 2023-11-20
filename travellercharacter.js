@@ -1417,7 +1417,7 @@ t.doServiceTerm = function () {
     t.age += 4;
     t.verboseHistory('--------------------------------------------');
     t.verboseHistory('Term ' +
-        t.terms + ' age ' + t.age);
+        t.terms);
     if (t.service == 'scouts') {
         t.skillPoints += 2;
     } else if (t.terms == 1) {
@@ -1481,11 +1481,13 @@ t.doServiceTerm = function () {
         // t.history.push('Separated from Service, Mishap'); // Deactivating Death, on a Failed survival roll the character just seperates from his career
         t.history.push('Separated from Service, Mishap: ' + mishapOutcome); // Add the mishap result to the character's history
         t.age -= 2; // reduces the age per term by 2 on a failed survival
-        t.history.push('Did not complete Term, -2 years ');
+                t.history.push('Did not complete Term, -2 years ');
     //     t.deceased = true; //deactivate this if you want to de-activate death 
         t.activeDuty = false; //failed survival roll still removes the character from duty. 
     }
+    
 };
+
 t.mishapResults = [];
 t.musterStrategy = '';
 t.found = false;
@@ -1604,8 +1606,11 @@ t.doReenlistment = function () {
     } else {
         t.history.push('Voluntarily reenlisted for ' +
                        intToOrdinal(t.terms + 1) + ' term.');
-    }
-};
+    };
+    t.verboseHistory( 'Age ' + t.age);
+}
+
+
 t.ageAttribute = function(attrib, req, reduction) {
     var agingRoll = roll(2);
     t.verboseHistory('Aging ' + attrib + ' throw ' + agingRoll + ' vs ' + req);
@@ -1613,6 +1618,7 @@ t.ageAttribute = function(attrib, req, reduction) {
         t.improveAttribute(attrib, reduction);
     }
 }
+
 t.doAging = function () {
     // Age-related attribute loss?
     if (t.age < 34) {
@@ -1646,7 +1652,9 @@ t.doAging = function () {
             }
         }
     }
+    
 };
+
 t.getNobleTitle = function () {
     switch (t.attributes.social) {
         case 11:
@@ -1728,6 +1736,8 @@ for (var skill in backgroundSkills) {
 }
 
 //BACKGROUND SKILLS END
+t.verboseHistory( 'Age ' + t.age);
+
 t.toString = function () {
     return (function() {
             var parms = t.urlParams();
@@ -1887,6 +1897,7 @@ t.reset = function() {
     t.activeDuty = true;
     t.retired = false;
     t.retirementPay = 0;
+  
 }
 
 t.hunt = t.urlParam('hunt');
@@ -1913,6 +1924,7 @@ while (t.activeDuty && (! t.deceased)) {
                            (t.found ? '' : ' not') + ' found');
         }
         t.doReenlistment();
+        
     } else {
         t.found = false;
         if (t.minTerms > 1) {
