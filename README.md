@@ -3,7 +3,6 @@ This JavaScript character generator for the Cepheus Engine sci-fi roleplaying ga
 This is based on https://github.com/pgorman/travellercharactergenerator classic Traveller character generator, I copied the files into this unlinked project so that I dont accidentally break his work. I'm learning to use Gitub through trial and error, and no formal training so expect me to make a lot of mistakes. 
 ~~Yes, characters _can_ die during character creation!~~
 
-Test Branch Edit 231116. EDIT 2 231116. 
 
 How to use this: 
 1. Download this in either your phone, tablet, or desktop
@@ -20,6 +19,12 @@ How to Test
 2. More importantly if you want to create the same project you can create a new repository, download and manually copy the files into that new repository (I did this because this allows me to instantly make changes without worrying about affecting pgorman's project).. 
 
 (Reload the page to generate another character.)
+
+## Log ##
+1. 231202 - got back into working on this. Last I remember I was supposed to make the mishap work. So there is a mishap branch. I need to make survival impossible in all the Services to properly test mishaps. Then when all the mishaps are working, we then proceed to hopefully triggering the Injury table.
+2.The injury table. a table where the character can lose stats, next is the medical care and deciding how much medical debt a character will take on. So character spending 5,000cr will raise their stat back to starting level. - Prosethetic rules will need be clarified - per TL. Anyway for TL8 and up. 
+![Injury table](image.png) 
+
 
 ## Origins ##
 This is a branch of Pgorman's [traverllercharactergenerator](https://github.com/pgorman/travellercharactergenerator)
