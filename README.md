@@ -25,6 +25,13 @@ How to Test (See notes 231102_00; additional changes 231103; testing pushing loc
 ## NEWBIE's Guide to Java Script ##
 
 
+## Log ##
+1. 231202 - got back into working on this. Last I remember I was supposed to make the mishap work. So there is a mishap branch. I need to make survival impossible in all the Services to properly test mishaps. Then when all the mishaps are working, we then proceed to hopefully triggering the Injury table.
+2.The injury table. a table where the character can lose stats, next is the medical care and deciding how much medical debt a character will take on. So character spending 5,000cr will raise their stat back to starting level. - Prosethetic rules will need be clarified - per TL. Anyway for TL8 and up. 
+![Injury table](image.png) 
+
+
+
 ## Origins ##
 This is a branch of Pgorman's [traverllercharactergenerator](https://github.com/pgorman/travellercharactergenerator)
 Thanks to a contribution from Frank Filz, a [verbose mode](https://justinaquinogitb.github.io/cechargen/index.html?history=verbose) adds behind-the-scenes character creation details.
